@@ -231,13 +231,13 @@ In this part of the lab you'll import an existing bot and get the opportunity to
 
 7. Extend the imported workspace by adding your own functionality. Plan out the intent(s), any required entities and the conversation flow prior to implementing. Once you're ready to implement you'll have to do the following:
 
-  i. Createintent(s) and provide at least 5 examples 
+  - Createintent(s) and provide at least 5 examples 
   
-  ii. Create any required entities (freel free to reuse the existing ones too)
+  - Create any required entities (freel free to reuse the existing ones too)
   
-  iii. Add a top level node(s) triggered by your new intent(s)
+  - Add a top level node(s) triggered by your new intent(s)
   
-  iv. Test using the **Try It** tool
+  - Test using the **Try It** tool
   
 ## Summary
 
