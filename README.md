@@ -14,68 +14,67 @@ A good question to ask yourself is, "Who is my user and what problem do they hav
 
 Training a chatbot is like training a human agent. You will train the chatbot with the knowledge of certain tasks (intents) and things that these tasks interact with (entities). These components are then combined to create a dialog tree that can take one or more paths to respond to the user's request.
 
-In the following steps, we have provided a sample restaurant chatbot that handles reservations for a restaurant. On the right side, it's your turn to create your own chatbot. Fill in the blanks to design your chatbot.
+In the following steps, we have provided a sample restaurant chatbot that handles reservations for a restaurant. 
 
 1. Envision the user that interacts with the bot.
 
-| Example                                         | Your turn            |
-| ----------------------------------------------- | -------------------- |
-| A user needs to book a table at the restaurant  | A user needs to ???? |
+| Example                                         |
+| ----------------------------------------------- |
+| A user needs to book a table at the restaurant  |
 
-2. Now, let's give describe the overall function of the chatbot.
+2. Now, let's describe the overall function of the chatbot.
 
-| Example                                                   | Your turn            |
-| --------------------------------------------------------- | -------------------- |
-| The chatbot helps users with common tasks at a restaurant | The chatbot ????     |
+| Example                                                   |
+| --------------------------------------------------------- |
+| The chatbot helps users with common tasks at a restaurant |
 
 
    
 3. It can be helpful to take a snapshot of an existing dialogue and then break it down into intents and entities. A sample conversation is shown below. Keep the conversation simple…you can always add more complex logic later.
 
-| Example                                                          | Your turn   |
-| ---------------------------------------------------------------- | ----------- |
-| Bot: Hi, I'm HungerBot. You can ask to reserve a table and more. | Bot:        |
-| User: I want to book a table. 	                               | User:       |
-| Bot: What type of cuisine would you like?                        | Bot:        |
-| User: I like Mexican food                                        | User:       |
-| Bot: How many people will be coming ?                            | Bot:        |
-| User: Five people                                                | User:       |
-| Bot: Excellent ! Here are the details of your booking            | Bot:        |
+| Example                                                          |
+| ---------------------------------------------------------------- |
+| Bot: Hi, I'm HungerBot. You can ask to reserve a table and more. | 
+| Dave: I want to book a table. 	                               | 
+| Bot: What type of cuisine would you like?                        |
+| Dave: I like Mexican food                                        | 
+| Bot: How many people will be coming ?                            | 
+| Dave: Five people                                                | 
+| Bot: Excellent ! Here are the details of your booking            |
 
 
 
-4. Let's start with the action the user wants to do, which is referred to as an intent. Write a human-friendly description of the action the user is wanting to perform. List at least five ways the user might phrase this action. Lastly, add a label, like a variable name in code (alpha-numeric, underscores, etc.), that can be used later as a reference.
+4. Let's start with the action the user wants to do, which is referred to as an intent. Frist we write a human-friendly description of the action the user is wanting to perform. Then we list at least five ways the user might phrase this action. Lastly, add a label, like a variable name in code (alpha-numeric, underscores, etc.), that can be used later as a reference.
 
-| Example                                                          | Your turn   |
-| ---------------------------------------------------------------- | ----------- |
-| Intent: book a reservation                                       | Intent:     |
-| Variations                                                       | Variations .|
-| 1. Reserve a table                                               | 1.          |
-| 2. Book a reservation                                            | 2.          |
-| 3. Make a reservation                                            | 3.          |
-| 4. Secure a reservation                                          | 4.          |
-| 5. Schedule a reservation                                        | 5.          |
-| Label: #book_reservation                                         | Label:      |
+| Example                                                          |
+| ---------------------------------------------------------------- |
+| Intent: book a reservation                                       | 
+| Variations                                                       | 
+| 1. Reserve a table                                               | 
+| 2. Book a reservation                                            | 
+| 3. Make a reservation                                            | 
+| 4. Secure a reservation                                          | 
+| 5. Schedule a reservation                                        | 
+| Label: #book_reservation                                         | 
 
 
 
-If you find that you don't have many variations, invite a colleague, a friend (or a real user!) to suggest how they would ask "to book a reservation." In the real world, you could use customer interactions as a base of inspiration or use a thesaurus.
+If you find that you don't have many variations, invite a colleague, a friend (or a real user!) to suggest how they would ask "to book a reservation." In the real world, you could use customer interactions as a base of inspiration.
 
-5. Another component to training a chatbot is recognizing objects, which is referred to as an entity. This example reservation system can differentiate different types of cuisine. We add a type of cuisine to booking a reservation.
+5. Another component to training a chatbot is recognizing objects, which are referred to as entities. This example reservation system can differentiate different types of cuisine. We add a type of cuisine to booking a reservation.
 
-| Example                                                          | Your turn   |
-| ---------------------------------------------------------------- | ----------- |
-| Entity: type of cuisine                                          | Entity:     |
-| Variations                                                       | Variations .|
-| 1. Mexican                                                       | 1.          |
-| 2. Chinese                                                       | 2.          |
-| 3. American                                                      | 3.          |
-| 4. Italian                                                       | 4.          |
-| 5. French                                                        | 5.          |
-| Label: @cuisine                                                  | Label:      |
+| Example                                                          |
+| ---------------------------------------------------------------- | 
+| Entity: type of cuisine                                          | 
+| Variations                                                       | 
+| 1. Mexican                                                       | 
+| 2. Chinese                                                       | 
+| 3. American                                                      | 
+| 4. Italian                                                       | 
+| Label: @cuisine                                                  | 
 
   
- We could add time and number entities, however, there are some built-in system entities provided by IBM, like numbers, dates, and times, that the HungerBot will use. If you have another entity, define the additional entity in a new table.
+ We could add time and number entities, however, there are some built-in system entities provided by IBM, like numbers, dates, and times, that the HungerBot will use. 
 
 In the Dialog editor of Watson Assistant, we can now setup logic to step the user through the conversation. In the next section, we will use this design to train the Watson Assistant service.
 
@@ -178,7 +177,7 @@ Now that we have designed the first dialogue between the chatbot and the user, w
 
 The Watson Assistant tooling offers a testing panel to test phrases to confirm the correct intents, entities, and dialog are matched and returned.
 
-1. To test the bot, click on the Try it icon in the top-right corner of the tooling.
+1. To test the bot, click on the **Try it** icon in the top-right corner of the tooling.
 
 ![try it 1](images/ss18.png)
 
@@ -206,7 +205,7 @@ The Watson Assistant tooling offers a testing panel to test phrases to confirm t
 
 8. Type in the following when prompted for the cuisine:
 `American for 5 people at 9pm next friday`
-Note how you are not prompted for any further information becaise all the required info to make the reservation has already  been provided. 
+Note how you are not prompted for any further information because all the required info to make the reservation has already  been provided. 
 
 ![try it 7](images/ss25.png)  
 
@@ -229,11 +228,17 @@ In this part of the lab you'll import an existing bot and get the opportunity to
 
 6. This will load the imported workspace into your instance of Assistant. Take a look at the Intents, Entities and Dialog of the imported bot. In the Dialog tab pay particluar attention to how the top level intents are handled. 
 
-7. Extend the imported workspace by adding your own functionality. Plan out the intent(s), any required entities and the conversation flow prior to implementing. Once you're ready to implement you'll have to do the following:
+7. Extend the imported workspace by adding your own functionality. Here are a couple of suggestions:
 
-  - Createintent(s) and provide at least 5 examples 
+  - Generate a sell order for one of the user's holdings if the price  drops below a certian specified threshold 
   
-  - Create any required entities (freel free to reuse the existing ones too)
+  - Generate a buy  order for a specified stock if the P/E ratio falls  below a certain specified threshold 
+
+8. After choosing one the scenarios above (or coming up with your own scenario),  plan out the intent(s), any required entities,  and the conversation flow prior to implementing. Once you're ready to implement you'll have to do the following:
+
+  - Create intent(s) and provide at least 5 examples 
+  
+  - Create any required entities (feel free to reuse the existing ones too)
   
   - Add a top level node(s) triggered by your new intent(s)
   
