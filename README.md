@@ -18,60 +18,60 @@ In the following steps, we have provided a sample restaurant chatbot that handle
 
 1. Envision the user that interacts with the bot.
 
-| Example                                         |
-| ----------------------------------------------- |
-| A user needs to book a table at the restaurant  |
+  | Example                                         |
+  | ----------------------------------------------- |
+  | A user needs to book a table at the restaurant  |
 
 2. Now, let's describe the overall function of the chatbot.
 
-| Example                                                   |
-| --------------------------------------------------------- |
-| The chatbot helps users with common tasks at a restaurant |
+  | Example                                                   |
+  | --------------------------------------------------------- |
+  | The chatbot helps users with common tasks at a restaurant |
 
 
    
 3. It can be helpful to take a snapshot of an existing dialogue and then break it down into intents and entities. A sample conversation is shown below. Keep the conversation simple…you can always add more complex logic later.
 
-| Example                                                          |
-| ---------------------------------------------------------------- |
-| Bot: Hi, I'm HungerBot. You can ask to reserve a table and more. | 
-| Dave: I want to book a table. 	                               | 
-| Bot: What type of cuisine would you like?                        |
-| Dave: I like Mexican food                                        | 
-| Bot: How many people will be coming ?                            | 
-| Dave: Five people                                                | 
-| Bot: Excellent ! Here are the details of your booking            |
+  | Example                                                          |
+  | ---------------------------------------------------------------- |
+  | Bot: Hi, I'm HungerBot. You can ask to reserve a table and more. | 
+  | Dave: I want to book a table. 	                               | 
+  | Bot: What type of cuisine would you like?                        |
+  | Dave: I like Mexican food                                        | 
+  | Bot: How many people will be coming ?                            | 
+  | Dave: Five people                                                | 
+  | Bot: Excellent ! Here are the details of your booking            |
 
 
 
 4. Let's start with the action the user wants to do, which is referred to as an intent. Frist we write a human-friendly description of the action the user is wanting to perform. Then we list at least five ways the user might phrase this action. Lastly, add a label, like a variable name in code (alpha-numeric, underscores, etc.), that can be used later as a reference.
 
-| Example                                                          |
-| ---------------------------------------------------------------- |
-| Intent: book a reservation                                       | 
-| Variations                                                       | 
-| 1. Reserve a table                                               | 
-| 2. Book a reservation                                            | 
-| 3. Make a reservation                                            | 
-| 4. Secure a reservation                                          | 
-| 5. Schedule a reservation                                        | 
-| Label: #book_reservation                                         | 
+  | Example                                                          |
+  | ---------------------------------------------------------------- |
+  | Intent: book a reservation                                       | 
+  | Variations                                                       | 
+  | 1. Reserve a table                                               | 
+  | 2. Book a reservation                                            | 
+  | 3. Make a reservation                                            | 
+  | 4. Secure a reservation                                          | 
+  | 5. Schedule a reservation                                        | 
+  | Label: #book_reservation                                         | 
 
 
 
-If you find that you don't have many variations, invite a colleague, a friend (or a real user!) to suggest how they would ask "to book a reservation." In the real world, you could use customer interactions as a base of inspiration.
+  If you find that you don't have many variations, invite a colleague, a friend (or a real user!) to suggest how they would ask "to book a reservation." In the real world, you could use customer interactions as a base of inspiration.
 
 5. Another component to training a chatbot is recognizing objects, which are referred to as entities. This example reservation system can differentiate different types of cuisine. We add a type of cuisine to booking a reservation.
 
-| Example                                                          |
-| ---------------------------------------------------------------- | 
-| Entity: type of cuisine                                          | 
-| Variations                                                       | 
-| 1. Mexican                                                       | 
-| 2. Chinese                                                       | 
-| 3. American                                                      | 
-| 4. Italian                                                       | 
-| Label: @cuisine                                                  | 
+  | Example                                                          |
+  | ---------------------------------------------------------------- | 
+  | Entity: type of cuisine                                          | 
+  | Variations                                                       | 
+  | 1. Mexican                                                       | 
+  | 2. Chinese                                                       | 
+  | 3. American                                                      | 
+  | 4. Italian                                                       | 
+  | Label: @cuisine                                                  | 
 
   
  We could add time and number entities, however, there are some built-in system entities provided by IBM, like numbers, dates, and times, that the HungerBot will use. 
