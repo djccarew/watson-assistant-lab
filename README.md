@@ -86,17 +86,21 @@ Now that we have designed the first dialogue between the chatbot and the user, w
 1. **Click on the Catalog*** link in the top-right corner of the IBM Cloud dashboard.
 
 2. **Select the Watson Assistant** tile under the section titled Watson.
+
 ![Assistant Service](images/ss1.png)
 
 3. Click **Create**
 
 4. Click on the  **Launch tool** button to launch into the Watson Assistant tooling.
+
 ![Launch](images/ss2.png)
 
 5. This is the Watson Assistant tooling where you can create workspaces and setup different chatbots dialogues and applications. There is an example Cognitive Car Dashboard workspace where you can see a more evolved training. However, we'll create a new workspace for our bot to use. Click on **Workspaces** and then on  **Create**   in the box labeled **Create a new workspace**.
+
 ![New workspace](images/ss3.png)
 
 6. Enter a name for the chatbot and click **Create**
+
 ![create](images/ss4.png)
 
 7. You will be redirected into a page with three tabs, Intents, Entities, and Dialog. Under the Intents tab, click on **Add intent**  to create the first intent.
@@ -104,56 +108,69 @@ Now that we have designed the first dialogue between the chatbot and the user, w
 8. Name the intent *#book_reservation* and click **Create intent**
 
 9. Add the following examples clicking on **Add example** after entering each one 
+
 ![examples](images/ss5.png)
 
 10. Click on the return icon to go back to the main menu screen
+
 ![return](images/ss6.png)
 
 11. Click on the **Entities** tab in the top menu bar. This is where you can add entities. Click **Add entity**
 
 12. Name the entity *@cuisine* and add the following values clicking **Add value** after entering each one
+
 ![values](images/ss7.png)
 
 13. Click in the return icon to go back to the main menu screen
 
 14. The Watson Assistant has a handful of common entities created by IBM that can be used across any use case. These entities include: date, time, currency, percentage, and numbers. Click on **System entities** and enable @sys-date, @sys-number and @sys_time
+
 ![sys entities](images/ss8.png)
 
 15. Click on the Dialog tab in the top menu bar. Click Create. There are two nodes added by default. The welcome condition is triggered when the chatbot is initially started. This is a good place to introduce the bot and suggest actions the user can ask of this chatbot. Select the Welcome node and change the response as shown below:
 ![new response](images/ss9.png)
 
 16. The second node checks for the condition anything_else. In the event the user enters something that wasn't expected, the service will return this response. Ideally, it should convey a way for the user to recover, such as example phrases.
+
 ![anything else](images/ss10.png)
 
 17. Select the Welcome node again and click **Add node**
 
 18. Name the node *Book Reservation* and select the #book-reservation intent where it says **if bot recognizes**
+
 ![new node](images/ss11.png)
 
 19. Click on **Customize** in the top right corner. Enable Slots and Prompt for everything. Click **Apply**
+
 ![enable slots](images/ss11.5.png)
 
 20. Add a slot for @cuisine, with the prompt `What type of cuisine would you like?`
+
 ![cuisine](images/ss12.png)
 
 
 21. Add another slot for @sys-date, with the prompt `What day would you like to reserve?`
+
 ![date](images/ss13.png)
 
 22. Add another slot for @sys-time, with the prompt `What time would you like to reserve?`
+
 ![time](images/ss14.png)
 
 
 23. Add another slot for @sys-number, with the prompt `How many people will be coming?`
+
 ![number](images/ss15.png)
 
 
 24. If no slots are prefilled, prompt the user to provide a cuisine. `Sure I can help make a reservation. What type of cuisine did you want ?`
+
 ![prefill](images/ss16.png)
 
 
 25.Have the bot respond with the details of the reservation. The syntax uses the values stored in the context and injects the values into the response. The full text should read:
 `Great! I've booked a table for <? $number ?> people on <? date ?> at <? $time ?> for <? $cuisine ?>`
+
 ![response](images/ss17.png)
 
 
@@ -162,21 +179,27 @@ Now that we have designed the first dialogue between the chatbot and the user, w
 The Watson Assistant tooling offers a testing panel to test phrases to confirm the correct intents, entities, and dialog are matched and returned.
 
 1. To test the bot, click on the Try it icon in the top-right corner of the tooling.
+
 ![try it 1](images/ss18.png)
 
 2. A side panel appears and shows the contents of the node that matches welcome. Enter a message that triggers the #book_reservation intent. We can ask *book a table*
+
 ![try it 2](images/ss19.png)
 
 3. Notice that the intent #book_reservation was recognized. The #book_reservation node was triggered and the output includes the response from the Book Reservation node. The user is prompted for a choice of cuisine.
+
 ![try it 3](images/ss20.png)  
 
 4. When the user enters a cuisine, the @cuisine entity is recognized.
+
 ![try it 4](images/ss21.png)  
 
 5.When the user enters a date or time, Watson extracts out the value using the system entities @sys-date and @sys-time.
+
 ![try it 5](images/ss22.png)  
 
 6.Finally, when the user enters a number (either numerically or spelled out) for the number of people in the reservation, Watson extracts out the number using the system entity @sys-number.
+
 ![try it 6](images/ss24.png)  
 
 7. Click on the **Clear** link to start over with the test tool. After typing  *book a reservation* to trigger the intent when initially prompted you can type in all the required information and the  bot will be smart enough not to promptt you. Type `book a table` when prompted.
@@ -184,6 +207,7 @@ The Watson Assistant tooling offers a testing panel to test phrases to confirm t
 8. Type in the following when prompted for the cuisine:
 `American for 5 people at 9pm next friday`
 Note how you are not prompted for any further information becaise all the required info to make the reservation has already  been provided. 
+
 ![try it 7](images/ss25.png)  
 
 ## Part 2 Extending an existing bot
@@ -191,12 +215,14 @@ In this part of the lab you'll import an existing bot and get the opportunity to
 
 1. Test drive the app driving the bot you'll import. It is a simple Portfolio Management bot that allows the users to caht about thoer invstment porftolios. Try out some of the questions that are on the landing page of the app. The app can be found [here](https://wealth-management-chatbot-1.mybluemix.net/demo.html) 
 
-2. Download the  json source of the existing chatbot to your machine. Use the "Save As" capability of your browser to save the contents of [this URL](https://raw.githubusercontent.com/IBM/personal-wealth-portfolio-mgt-bot/master/resources/workspace.json) to a local json file
+2. Download the  json source of the existing chatbot to your machine. Use the "Save As" capability of your browser to save the contents of [this URL](https://raw.githubusercontent.com/djccarew/watson-assistant-lab/master/workspaces/portfolio-bot.json) to a local json file
 
 3. In the Watson Assistant tooling click on the **Workspaces** breadcrumb
+
 ![workspaces](images/ss26.png)
 
 4. Click on the Import icon
+
 ![import](images/ss27.png)
 
 5. Click on **Choose a file** and select the json file you saved locally. Click **Import**
@@ -206,8 +232,11 @@ In this part of the lab you'll import an existing bot and get the opportunity to
 7. Extend the imported workspace by adding your own functionality. Plan out the intent(s), any required entities and the conversation flow prior to implementing. Once you're ready to implement you'll have to do the following:
 
   i. Createintent(s) and provide at least 5 examples 
+  
   ii. Create any required entities (freel free to reuse the existing ones too)
+  
   iii. Add a top level node(s) triggered by your new intent(s)
+  
   iv. Test using the **Try It** tool
   
 ## Summary
